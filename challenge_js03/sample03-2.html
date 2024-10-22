@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配列の利用</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1.5px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        td {
+            text-align: right;
+        }
+        td:first-child{
+            padding: 10px;
+            text-align: center;
+        }
+        th, td:first-child {
+            background-color: #ffcc99;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>利用料の計算</h2>
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>料金(a)</th>
+            <th>人数(b)</th>
+            <th>a×b</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>500</td>
+            <td>10</td>
+            <td><button onclick="multiply_0()">利用料の合計</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>980</td>
+            <td>16</td>
+            <td><button onclick="multiply_1()">利用料の合計</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1200</td>
+            <td>8</td>
+            <td><button onclick="multiply_2()">利用料の合計</button></td>
+        </tr>
+    </table>
+
+    <script>
+        var a = [500, 980, 1200];
+        var b = [10, 16, 8];
+
+        function multiply_0() {
+            var answer = a[0] * b[0];
+            alert("料金は" + answer + "円です");
+        }
+
+        function multiply_1() {
+            var answer = a[1] * b[1];
+            alert("料金は" + answer + "円です");
+        }
+
+        function multiply_2() {
+            var answer = a[2] * b[2];
+            alert("料金は" + answer + "円です");
+        }
+    </script>
+</body>
+</html>
