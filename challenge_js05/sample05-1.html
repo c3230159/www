@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人口の多い国ランキング</title>
+</head>
+<body>
+    <h1>人口の多い国ランキング</h1>
+    <ol id="countryList">
+        <li id="china">中国</li>
+        <li id="india">インド</li>
+        <li id="usa">アメリカ</li>
+        <li id="indonesia">インドネシア</li>
+    </ol>
+    <button id="reserveButton" onclick="world()">国旗で表示</button>
+
+    <script>
+        function world() {
+            document.getElementById("china").innerHTML = '<img src="images/flag_CHN.png" alt="a">'
+            document.getElementById("india").innerHTML = '<img src="images/flag_IND.png" alt="a">'
+            document.getElementById("usa").innerHTML = '<img src="images/flag_USA.png" alt="a">'
+            document.getElementById("indonesia").innerHTML = '<img src="images/flag_IDN.png" alt="a">'
+        }
+    </script>
+</body>
+</html>
