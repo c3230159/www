@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>繰り返し処理</title>
+<style>
+    table {
+        width: 60%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    td, th {
+        border: solid 1px #000000;
+        width: 40px;
+        padding: 5px;
+        text-align: center;
+    }
+    th, td:first-child {
+        background-color: #99CCCC;
+    }
+    td:first-child {
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+    td {
+        text-align: right;
+        }
+</style>
+</head>
+<body onload="createTable()">
+<h1>入場料の一覧</h1>
+<table>
+    <tr>
+        <th></th>
+        <th>大人</th>
+        <th>高校生</th>
+        <th>中学生</th>
+        <th>小学生</th>
+    </tr>
+    <tbody id="t_body">
+        <tr>
+            <td>1人</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2人</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3人</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4人</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5人</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+function createTable() {
+    const prices = {
+        "大人": 800,
+        "高校生": 680,
+        "中学生": 450,
+        "小学生": 380
+    };
+
+    const tBody = document.getElementById("t_body");
+
+    for (let i = 1; i <= 5; i++) {
+        const row = tBody.rows[i - 1];
+        
+        let colIndex = 1;
+        for (let category in prices) {
+            const price = prices[category] * i;
+            row.cells[colIndex].textContent = `${price}円`;
+            colIndex++;
+        }
+    }
+}
+</script>
+
+</body>
+</html>
