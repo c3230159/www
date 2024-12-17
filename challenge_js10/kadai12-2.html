@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>関数の戻り値</title>
+    <style>
+        #message {
+            width: 400px;
+            padding: 15px;
+            margin: 25px 0px;
+            background-color: #FFCC99;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>n～mで割り切れる数字</h1>
+    <p>1～10の好きな範囲で<br>
+        割り切れる最小の数値をJavaScriptで求めます。</p>
+    <button onclick="show()">範囲を指定</button>
+    <div id="message">ここに結果が表示されます。</div>
+
+    <script>
+        function gcd(a, b) {
+            return b === 0 ? a : gcd(b, a % b);
+        }
+
+        function lcm(a, b) {
+            return (a * b) / gcd(a, b);
+        }
+
+        function findLCM(start, end) {
+            let result = 1;
+            for (let i = start; i <= end; i++) {
+                result = lcm(result, i);
+            }
+            return result;
+        }
+
+        function show() {
+            const start = parseInt(prompt("範囲の最小値を1~10で入力してください"), 10);
+            const end = parseInt(prompt("範囲の最大値を1~10で入力してください"), 10);
+
+            if (isNaN(start) || isNaN(end) || start < 1 || start > 10 || end < 1 || end > 10) {
+                alert("1～10の範囲で正しい数値を入力してください。");
+                return;
+            }
+
+            const min = Math.min(start, end);
+            const max = Math.max(start, end);
+
+            const result = findLCM(min, max);
+            document.getElementById('message').innerText = `${min}～${max}で割り切れる最小の数値は${result}です。`;
+        }
+    </script>
+</body>
+
+</html>
